@@ -1,0 +1,62 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>Admin page</title>
+    <link href="StyleSheet.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder id="head" runat="server">
+      
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .auto-style1 {
+            z-index: 1;
+            left: 975px;
+            top: 36px;
+            position: absolute;
+        }
+        .auto-style2 {
+            z-index: 1;
+            left: 844px;
+            top: 34px;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    
+        <div id="header"><div id="title">Administrator Section<span id="logOut"><asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/Logins/Login.aspx" CssClass="auto-style1">LogOut</asp:HyperLink></span>
+            </div>
+            <div id="adminMenu">
+            <asp:TreeView ID="TreeView1" runat="server" ShowLines="True" ForeColor="#000099">
+            <Nodes>
+                <asp:TreeNode NavigateUrl="~/Administrator/Default.aspx" Text="Main Page" Value="Main Page">
+                    <asp:TreeNode NavigateUrl="~/Administrator/Admin.aspx" Text="Edit Advisor" Value="Edit Advisor">
+                    </asp:TreeNode>
+                </asp:TreeNode>
+                <asp:TreeNode NavigateUrl="~/Administrator/Faculty.aspx" Text="Edit Faculty" Value="Edit Faculty">
+                    <asp:TreeNode NavigateUrl="~/Administrator/Course.aspx" Text="Edit Course" Value="Edit Course"></asp:TreeNode>
+                </asp:TreeNode>
+                <asp:TreeNode NavigateUrl="~/Administrator/Fund.aspx" Text="Edit Funds" Value="Edit Funds">
+                    <asp:TreeNode NavigateUrl="~/Administrator/Grants.aspx" Text="Edit Grants" Value="Edit Grants"></asp:TreeNode>
+                </asp:TreeNode>
+                <asp:TreeNode NavigateUrl="~/Administrator/Program.aspx" Text="Edit Program" Value="Edit Program"></asp:TreeNode>
+            </Nodes>
+            </asp:TreeView>
+                <asp:Label ID="Label1" runat="server" CssClass="auto-style2"></asp:Label>
+                </div>
+        </div>
+    
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+
+
+
+
+        <div id="footer">Student Financial Services</div>
+    </form>
+</body>
+</html>

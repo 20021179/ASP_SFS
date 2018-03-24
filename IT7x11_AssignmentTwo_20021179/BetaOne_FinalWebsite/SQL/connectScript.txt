@@ -1,0 +1,5 @@
+SqlConnection connectDB = new SqlConnection(ConfigurationManager.ConnectionStrings["MikesFinancialDBString"].ConnectionString); // sql object retrieves value
+        connectDB.Open(); // open database string connction
+        string chkUsr = "select count(*) from Advisor where Username='"+txtUsername.Text+"'"; // check username
+        SqlCommand cmd = new SqlCommand(chkUsr, connectDB); // parameter check username, database
+        int temporary = Convert.ToInt32(cmd.ExecuteScalar().ToString()); /

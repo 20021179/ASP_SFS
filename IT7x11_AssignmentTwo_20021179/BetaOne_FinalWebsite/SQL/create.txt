@@ -1,0 +1,131 @@
+CREATE TABLE Grants (
+    GrantID int identity not null,
+    GrantType varchar(255)not null,
+    GrantDescription varchar(255)not null,
+    GrantValue money not null,
+    Refno varchar(255), 
+    PRIMARY KEY (GrantID)
+
+)
+CREATE TABLE Funds (
+    FundID int identity not null,
+    KuhaFund money not null,
+    DateOfIssue datetime not null,
+    PRIMARY KEY (FundID),
+   
+)
+CREATE TABLE Student (
+    StudentID int IDENTITY not null,
+    FirstName varchar(255) not null,
+    LastName varchar(255) not null,
+    Gender varchar(255)not null,
+    DateOfBirth datetime not null,
+    Address1 varchar(255)not null,
+    Accomodation varchar(255)not null,
+    PhoneNumber varchar(255)not null,
+    MobileNumber varchar(255)not null,
+    EmailAddress varchar(255)not null,
+    MaritalStatus varchar(255)not null,
+    ContactPerson varchar(255)not null,
+    MainEthnacity varchar(255)not null,
+    ProgramID int not null,
+    FOREIGN KEY (ProgramID) REFERENCES Program(ProgramID),
+    PRIMARY KEY (StudentID)
+)
+
+CREATE TABLE Campus (
+    CampusID int Identity not null,
+    Location varchar(255)not null
+   PRIMARY KEY (CampusID),
+    
+)
+CREATE TABLE Faculty(
+    FacultyID int identity not null,
+    FacultyName varchar(255)not null,
+	primary key(FacultyID)
+    
+)
+CREATE TABLE Program(
+    ProgramID int IDENTITY not null,
+    ProgramName varchar(255)not null,
+    FacultyID int not null,
+    CourseID int not null,
+    CampusID int not null,
+    SkillLevel varchar(255)not null,
+    FOREIGN KEY (FacultyID) REFERENCES Faculty(FacultyName),
+    FOREIGN KEY (CourseID) REFERENCES Course(Course_Name),
+    FOREIGN KEY (CampusID) REFERENCES Campus(Location),
+    PRIMARY KEY(ProgramID)
+
+);
+CREATE TABLE StudentStatus(
+    StudentStatusID int IDENTITY not null,
+    StudentID int not null,
+    Age varchar(255)not null,
+    Ethnicity varchar(255)not null,
+    Gender varchar(255)not null,
+    FOREIGN KEY (StudentID) REFERENCES Student(StudentID),
+    PRIMARY KEY (StudentStatusID)
+)
+CREATE TABLE Course (
+    CourseID int IDENTITY not null,
+    Course_Name varchar(255) not null,
+   PRIMARY KEY (CourseID)
+)
+
+CREATE TABLE fundAllocation (
+    fundAllocationID int IDENTITY not null,
+    Allocation money not null,
+    StudentID int not null,
+    FundID int not null,
+   PRIMARY KEY (fundAllocationID),
+FOREIGN KEY (StudentID) REFERENCES Student(StudentID),
+FOREIGN KEY (FundID) REFERENCES Funds(FundID),
+
+)
+
+CREATE TABLE Admin(
+    AdminID int IDENTITY not null,
+    UserName varchar(255) not null,
+    PassWord varchar(255) not null,
+   PRIMARY KEY (AdminID)
+)
+
+CREATE TABLE Advisor (
+    AdvisorID int IDENTITY not null,
+    Username varchar(255) not null,
+    Password varchar(255) not null,
+   PRIMARY KEY (AdvisorID)
+)
+-------------------------------------------------------------------
+CREATE TABLE Student_Registration_Form (
+    Student_ID int IDENTITY not null,
+    Fname varchar(255) not null,
+    Lname varchar(255) not null,
+    Gender varchar(255)not null,
+    DOB  datetime not null,
+    Address1 varchar(255)not null,
+    Accomodation_Type varchar(255)not null,
+    Phone varchar(255)not null,
+    Mobile varchar(255)not null,
+    Email varchar(255)not null,
+    Marital_Status varchar(255)not null,
+    Contact varchar(255)not null,
+    Main_Ethnicity varchar(255)not null,
+    Faculty varchar(255)not null,
+    Courses  varchar(255) not null,
+    Detailed_Ethnicity varchar(255) not null,
+    campus varchar(255) not null,
+    PRIMARY KEY (Student_ID)
+)
+
+CREATE TABLE Student_Vouchers (
+    Student_ID int IDENTITY not null,
+    GrantType varchar(255) not null,
+    GrantDescription varchar(255) not null,
+    GrantValue money not null,
+    DateOfIssue datetime not null,
+    KuhaFunds money not null,
+Refno varchar(255) not null,
+   FOREIGN KEY (Student_ID) REFERENCES Student_Registration_Form(Student_ID),
+)

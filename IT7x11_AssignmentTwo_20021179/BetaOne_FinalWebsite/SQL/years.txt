@@ -1,0 +1,6 @@
+select 
+DateOfBirth,
+YEAR(DateOFBirth) AS [BirthYear],
+YEAR(GETDATE())AS [ThisYear],
+YEAR(GETDATE())-YEAR(DateOfBirth)As [Age]
+from Student

@@ -1,0 +1,62 @@
+﻿body {
+    font-family:Arial;
+    font-size:16px;
+    color:navy;
+}
+
+#Title{
+font-family:Arial;
+    font-size:20px;
+    color:navy;
+    text-align:center;
+    font-weight:bold;
+}
+
+
+#Title2{
+font-family:Arial;
+    font-size:20px;
+    color:navy;
+    text-align:center;
+    font-weight:bold;
+}
+
+#subTitle{
+    font-family:Arial;
+    font-size:18px;
+    color:navy;
+}
+
+
+#displayMenu{
+    font-family:Arial;
+    font-size:16px;
+    color:navy;
+    position:center;
+    text-align:center;
+}
+
+
+#Header{
+font-family:Arial;
+    font-size:16px;
+    color:navy;
+    background-color:olive;
+}
+
+
+#Footer{
+    font-family:Arial;
+    font-size:14px;
+    color:navy;
+}
+#logOut{
+    font-family:Arial;
+    font-size:14px;
+     color:navy;
+}
+
+#mainContent{
+    position:center;
+    text-align"center";
+}

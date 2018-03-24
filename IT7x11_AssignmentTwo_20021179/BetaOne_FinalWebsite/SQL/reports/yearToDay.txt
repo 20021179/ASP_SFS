@@ -1,0 +1,6 @@
+SELECT fundAllocation.fundAllID, Funds.KuhaFund, Funds.DateOfIssue
+FROM fundAllocation
+INNER Join Funds ON fundAllocation.FundID=fundAllocation.fundAllID;
+
+SELECT SUM(Quantity)
+FROM OrderDetails;

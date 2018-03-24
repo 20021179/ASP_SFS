@@ -1,0 +1,8 @@
+SELECT Orders.OrderID, Customers.CustomerName, Orders.OrderDate
+FROM Orders
+INNER JOIN Customers ON Orders.CustomerID=Customers.CustomerID;
+
+SELECT fundAllocation.fundAllID, Funds.KuhaFund, Funds.DateOfIssue
+FROM fundAllocation
+INNER Join Funds ON fundAllocation.FundID=fundAllocation.fundAllID;
+

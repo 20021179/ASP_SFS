@@ -1,0 +1,46 @@
+<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ViewCustomerForm.aspx.cs" Inherits="ViewCustomerForm" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <link href="StyleSheetMain.css" rel="stylesheet" />
+    </head>
+<body>
+    <form id="form1" runat="server">
+    <div class="divHeading" >
+        <h1 >View/Search Customer form</h1>
+    </div>
+        <div class="divCustSearch">
+            <asp:Table ID="Table1" runat="server">
+                <asp:TableRow>
+                    <asp:TableCell>
+                        Customer ID
+                    </asp:TableCell>
+                    <asp:TableCell>
+                       <asp:TextBox ID="TextBoxCustID" runat="server"></asp:TextBox>
+                    </asp:TableCell>
+                    <asp:TableCell HorizontalAlign="Left">
+                      <asp:Button ID="ButtonSeach" runat="server" Text="Search" OnClick="ButtonSeach_Click" />
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow>
+                    <asp:TableCell>
+                        Select a customer :
+                    </asp:TableCell>
+                     <asp:TableCell>
+                            <asp:DropDownList ID="DropDownListCust" runat="server" OnTextChanged="DropDownListCust_TextChanged" AutoPostBack="true">
+                            </asp:DropDownList>
+                    </asp:TableCell>
+                </asp:TableRow>
+                <asp:TableRow >
+                    <asp:TableCell ColumnSpan="2" >
+                        <asp:ListBox ID="ListBoxCustDetails" runat="server" Width="300px" Height="200px"></asp:ListBox>
+                    </asp:TableCell>
+                </asp:TableRow>
+            </asp:Table>
+            </div>
+    </form>
+</body>
+</html> 

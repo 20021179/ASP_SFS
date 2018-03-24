@@ -1,0 +1,67 @@
+﻿body {
+    font-family:Arial;
+    font-size:12px;
+   
+}
+
+#mainContent{
+    font-family:Arial;
+    font-size:12px;
+   
+}
+
+#header{
+    font-family:Arial;
+    font-size:14px;
+    text-align:center;
+    font-weight:bold;
+    color:navy;
+    background-color:olive;
+    padding-top:10px;
+    padding-bottom:10px;
+}
+
+#footer{
+    font-family:Arial;
+    font-size:10px;
+    text-align:center;
+    font-weight:bold;
+    background-color:olive;
+   
+}
+
+#heading{
+    font-family:Arial;
+    font-size:20px;
+    text-align:center;
+    font-weight:bold;
+ 
+}
+
+#subHeading{
+    font-family:Arial;
+    font-size:18px;
+    text-align:left;
+    font-weight:bold;
+     padding-top:80px;
+     color:navy;
+     position:center;
+     text-align:center;
+}
+
+#title{
+    font-family:Arial;
+    color:navy;
+    font-size:24px;
+}
+#adminMenu{
+    font-family:Arial;
+    font-size:14px;
+     color:navy;
+}
+#logOut{
+    font-family:Arial;
+    font-size:14px;
+     color:navy;
+}
+

@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+    <siteMapNode url="Default.aspx" title="Main"  description="Main Page">
+        <siteMapNode url="Admin.aspx" title="Admin Edit"  description="Administrator Edit" />
+        <siteMapNode url="Faculty.aspx" title="Faculty Management"  description="Edit Faculty" />
+    </siteMapNode>
+</siteMap>

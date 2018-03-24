@@ -1,0 +1,17 @@
+CREATE TABLE fundAllocation(
+    fundAllocationID int NOT NULL,
+    FundID int not null,
+    StudentID int not null,
+    GrantID int not null,
+    PRIMARY KEY (fundAllocationID),
+    FOREIGN KEY (FundID) REFERENCES Funds(FundID),
+    FOREIGN KEY (StudentID) REFERENCES Student(StudentID),
+    FOREIGN KEY (GrantID) REFERENCES Grants(GrantID)
+);
+
+CREATE TABLE studentStatus(
+    studentStatusID int not null,
+    StudentID int not null,
+    CONSTRAINT PK_studentStatusPRIMARY KEY (studentStatusID),
+    FOREIGN KEY (StudentID) REFERENCES Student(studentStatus,StudentID),
+   ) 

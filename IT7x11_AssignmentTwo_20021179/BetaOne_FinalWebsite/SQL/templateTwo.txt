@@ -1,0 +1,112 @@
+using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Linq;
+using System.Web;
+using System.Web.Configuration;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+public partial class ViewCustomerForm : System.Web.UI.Page
+{
+    private string MyConnStr = WebConfigurationManager.ConnectionStrings["DatabaseConnectionString1"].ConnectionString;
+    protected void Page_Load(object sender, EventArgs e)
+    {
+
+        SqlConnection sqlConn = new SqlConnection(MyConnStr);
+        SqlCommand cmd = new SqlCommand("select * from tblCustomer", sqlConn);
+        SqlDataReader MyDataReader;
+        try
+        {
+            if (!this.IsPostBack)
+            {
+                sqlConn.Open();
+                MyDataReader = cmd.ExecuteReader();
+
+                while (MyDataReader.Read())
+                {
+                    ListItem newitem = new ListItem();
+                    newitem.Text = MyDataReader["id"] + ", " + MyDataReader["Name"];
+                    newitem.Value = MyDataReader["id"].ToString();
+                    DropDownListCust.Items.Add(newitem);
+                }
+
+            }
+        }
+        catch (Exception er)
+        {
+            Response.Write("<script language='javascript'> alert('Database connection failed');</script>");
+        }
+        finally
+        {
+            sqlConn.Close();
+        }
+        
+    }
+
+    protected void ButtonSeach_Click(object sender, EventArgs e)
+    {
+        SqlConnection sqlConn = new SqlConnection(MyConnStr);
+        SqlCommand cmd = new SqlCommand("select * from tblCustomer where Id='" + TextBoxCustID.Text + "'", sqlConn);
+        SqlDataReader MyDataReader;
+
+        try
+        {
+            sqlConn.Open();
+            MyDataReader = cmd.ExecuteReader();
+            MyDataReader.Read();
+
+            ListBoxCustDetails.Items.Clear();
+            ListBoxCustDetails.Items.Add("Customer ID: " + MyDataReader["Id"]);
+            ListBoxCustDetails.Items.Add("Name: " + MyDataReader["Name"]);
+            ListBoxCustDetails.Items.Add("Addess: " + MyDataReader["Address"]);
+
+
+            // Response.Write("<script language='javascript'> alert('Database connection openned');</script>");
+        }
+        catch (Exception er)
+        {
+            // Response.Write("<script language='javascript'> alert('Database connection failed');</script>");
+            Response.Write("<script language='javascript'> alert('Customer not found!');</script>");
+        }
+        finally
+        {
+            sqlConn.Close();
+            //Response.Write("<script language='javascript'> alert('Database connection closed');</script>");
+        }
+
+    }
+
+    protected void DropDownListCust_TextChanged(object sender, EventArgs e)
+    {
+        SqlConnection sqlConn = new SqlConnection(MyConnStr);
+        SqlCommand cmd = new SqlCommand("select * from tblCustomer where Id='" + DropDownListCust.SelectedValue + "'", sqlConn);
+        SqlDataReader MyDataReader;
+
+        try
+        {
+            sqlConn.Open();
+            MyDataReader = cmd.ExecuteReader();
+            MyDataReader.Read();
+
+            ListBoxCustDetails.Items.Clear();
+            ListBoxCustDetails.Items.Add("Customer ID: " + MyDataReader["Id"]);
+            ListBoxCustDetails.Items.Add("Name: " + MyDataReader["Name"]);
+            ListBoxCustDetails.Items.Add("Addess: " + MyDataReader["Address"]);
+
+
+            // Response.Write("<script language='javascript'> alert('Database connection openned');</script>");
+        }
+        catch (Exception er)
+        {
+            // Response.Write("<script language='javascript'> alert('Database connection failed');</script>");
+            Response.Write("<script language='javascript'> alert('Customer not found!');</script>");
+        }
+        finally
+        {
+            sqlConn.Close();
+            //Response.Write("<script language='javascript'> alert('Database connection closed');</script>");
+        }
+
+    }
+}
